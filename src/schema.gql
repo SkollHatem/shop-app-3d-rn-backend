@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Media {
+  id: Int!
+  url: String!
+  productId: Int!
+  product: Product!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  img: String!
+  group: String!
+  price: Int!
+  description: String!
+  medias: [Media!]!
+}
+
+type Query {
+  product(id: Int!): Product!
+  products: [Product!]!
+  medias: [Media!]!
+}
+
+type Mutation {
+  createProduct(productInput: CreateProductInput!): Product!
+  createMedia(createMediaInput: CreateMediaInput!): Media!
+}
+
+input CreateProductInput {
+  name: String!
+  img: String!
+  group: String!
+  price: Int!
+  description: String!
+}
+
+input CreateMediaInput {
+  url: String!
+  productId: Int!
+}
